@@ -10,8 +10,16 @@ using Vertical.Architecture.Net.Shared;
 namespace Vertical.Architecture.Net.Features.Articles
 {
 
+    /// <summary>
+    /// Contains the functionality required to create an article:
+    /// - the MediatR `Command` representing the create request,
+    /// - the `Validator` that enforces required fields,
+    /// - the `Handler` that persists the article to the database and returns the created article Id,
+    /// - and the `CreateArticleEndpoint` that exposes an API endpoint for creating articles.
+    /// </summary>
     public static class CreateArticle
     {
+
         public class Command : IRequest<Result<Guid>>
         {
             public string Title { get; set; } = string.Empty;

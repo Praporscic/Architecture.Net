@@ -1,6 +1,14 @@
-﻿using Vertical.Architecture.Net.Shared;
-
+﻿
 namespace Vertical.Architecture.Net.Shared;
+
+//What Result is for!
+//Result handles:
+
+//expected failures
+//business rules
+//validation
+//authorization decisions
+//invariants
 
 public class Result
 {

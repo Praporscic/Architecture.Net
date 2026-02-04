@@ -17,5 +17,7 @@ namespace Vertical.Architecture.Net.Database
         }
 
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Product> Products { get; set; }
+
     }
 }

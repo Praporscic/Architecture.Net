@@ -1,4 +1,10 @@
+using Clean.Architecture.Domain.Abstractions;
+using Clean.Architecture.Infrastructure;
+using Clean.Architecture.Infrastructure.Repositories;
+using Clean.Architecture.Presentation.Middleware;
 using Serilog;
+using System.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +15,16 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Host.UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Application")));
+
+builder.Services.AddScoped<IWebinarRepository, WebinarRepository>();
+
+builder.Services.AddScoped<IUnitOfWork>(
+    factory => factory.GetRequiredService<ApplicationDbContext>());
+
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 
 var app = builder.Build();
 

@@ -1,0 +1,22 @@
+﻿using Clean.Architecture.Domain.Primitives;
+
+namespace Clean.Architecture.Domain.Entities
+{
+    public sealed class Webinar : Entity
+    {
+        public Webinar(Guid id, string name, DateTime scheduledOn)
+        : base(id)
+        {
+            Name = name;
+            ScheduledOn = scheduledOn;
+        }
+
+        private Webinar()
+        {
+        }
+
+        public string Name { get; private set; }
+
+        public DateTime ScheduledOn { get; private set; }
+    }
+}

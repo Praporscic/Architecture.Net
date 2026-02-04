@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Clean.Architecture/">
+    <Project Path="Clean.Architecture/Clean.Architecture.Application/Clean.Architecture.Application.csproj" Id="503b01ae-005c-4d7b-978a-35ad0eb3b9c0" />
     <Project Path="Clean.Architecture/Clean.Architecture.Domain/Clean.Architecture.Domain.csproj" />
   </Folder>
   <Project Path="Vertical.Architecture.Net/Vertical.Architecture.Net.csproj" />
